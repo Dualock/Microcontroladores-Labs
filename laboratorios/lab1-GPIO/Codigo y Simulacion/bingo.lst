@@ -1,0 +1,267 @@
+gplink-1.4.0 #1107 (Jan  1 2021)
+Copyright (c) 1998-2014 gputils project
+Listing File Generated: 1-7-2024  00:54:06
+ 
+ 
+Address  Value    Disassembly              Source
+-------  -----    -----------              ------
+                                           ;--------------------------------------------------------
+                                           ; File Created by SDCC : free open source ANSI-C Compiler
+                                           ; Version 4.0.0 #11528 (Linux)
+                                           ;--------------------------------------------------------
+                                           ; PIC port for the 14-bit core
+                                           ;--------------------------------------------------------
+                                           ;	.file	"bingo.c"
+                                           	list	p=12f683
+                                           	radix dec
+                                           	include "p12f683.inc"
+                                                   LIST
+                                           
+                                           ;==========================================================================
+                                           ; Build date : Aug 07 2014
+                                           ;  MPASM PIC12F683 processor include
+                                           ; 
+                                           ;  (c) Copyright 1999-2014 Microchip Technology, All rights reserved
+                                           ;==========================================================================
+                                           
+                                                   NOLIST
+                                           ;--------------------------------------------------------
+                                           ; external declarations
+                                           ;--------------------------------------------------------
+                                           	extern	_TRISIO
+                                           	extern	_GPIO
+                                           	extern	_GPIObits
+                                           	extern	__sdcc_gsinit_startup
+                                           ;--------------------------------------------------------
+                                           ; global declarations
+                                           ;--------------------------------------------------------
+                                           	global	_main
+                                           	global	_delay
+                                           	global	_setup
+                                           
+                                           	global PSAVE
+                                           	global SSAVE
+                                           	global WSAVE
+                                           	global STK12
+                                           	global STK11
+                                           	global STK10
+                                           	global STK09
+                                           	global STK08
+                                           	global STK07
+                                           	global STK06
+                                           	global STK05
+                                           	global STK04
+                                           	global STK03
+                                           	global STK02
+                                           	global STK01
+                                           	global STK00
+                                           
+                                           sharebank udata_ovr 0x0070
+                                           PSAVE	res 1
+                                           SSAVE	res 1
+                                           WSAVE	res 1
+                                           STK12	res 1
+                                           STK11	res 1
+                                           STK10	res 1
+                                           STK09	res 1
+                                           STK08	res 1
+                                           STK07	res 1
+                                           STK06	res 1
+                                           STK05	res 1
+                                           STK04	res 1
+                                           STK03	res 1
+                                           STK02	res 1
+                                           STK01	res 1
+                                           STK00	res 1
+                                           
+                                           ;--------------------------------------------------------
+                                           ; global definitions
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; absolute symbol definitions
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; compiler-defined variables
+                                           ;--------------------------------------------------------
+                                           UDL_bingo_0	udata
+                                           r0x1001	res	1
+                                           r0x1000	res	1
+                                           r0x1002	res	1
+                                           r0x1003	res	1
+                                           r0x1004	res	1
+                                           r0x1005	res	1
+                                           r0x1006	res	1
+                                           r0x1007	res	1
+                                           r0x1008	res	1
+                                           ;--------------------------------------------------------
+                                           ; initialized data
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; initialized absolute data
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; overlayable items in internal ram 
+                                           ;--------------------------------------------------------
+                                           ;	udata_ovr
+                                           ;--------------------------------------------------------
+                                           ; reset vector 
+                                           ;--------------------------------------------------------
+                                           STARTUP	code 0x0000
+000000   0000     nop                      	nop
+                                           	pagesel __sdcc_gsinit_startup
+000001   2802     goto    0x0002           	goto	__sdcc_gsinit_startup
+                                           ;--------------------------------------------------------
+                                           ; code
+                                           ;--------------------------------------------------------
+                                           code_bingo	code
+                                           ;***
+                                           ;  pBlock Stats: dbName = M
+                                           ;***
+                                           ;has an exit
+                                           ;functions called:
+                                           ;   _setup
+                                           ;   _delay
+                                           ;   _setup
+                                           ;   _delay
+                                           ;2 compiler assigned registers:
+                                           ;   r0x1008
+                                           ;   STK00
+                                           ;; Starting pCode block
+                                           S_bingo__main	code
+                                           _main:
+                                           ; 2 exit points
+                                           ;	.line	25; "bingo.c"	setup();
+                                           	PAGESEL	_setup
+0000fc   211e     call    0x011e           	CALL	_setup
+                                           	PAGESEL	$
+                                           _00142_DS_:
+                                           ;	.line	29; "bingo.c"	GP0 = ~GP0;
+0000fd   1683     bsf     0x03, 0x5        	BANKSEL	r0x1008
+0000fe   01b4     clrf    0x34             	CLRF	r0x1008
+0000ff   1283     bcf     0x03, 0x5        	BANKSEL	_GPIObits
+000100   1c05     btfss   0x05, 0x0        	BTFSS	_GPIObits,0
+000101   2904     goto    0x0104           	GOTO	_00001_DS_
+000102   1683     bsf     0x03, 0x5        	BANKSEL	r0x1008
+000103   0ab4     incf    0x34, 0x1        	INCF	r0x1008,F
+                                           _00001_DS_:
+000104   1683     bsf     0x03, 0x5        	BANKSEL	r0x1008
+000105   0934     comf    0x34, 0x0        	COMF	r0x1008,W
+000106   00b4     movwf   0x34             	MOVWF	r0x1008
+000107   0c34     rrf     0x34, 0x0        	RRF	r0x1008,W
+000108   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
+000109   290c     goto    0x010c           	GOTO	_00002_DS_
+00010a   1283     bcf     0x03, 0x5        	BANKSEL	_GPIObits
+00010b   1005     bcf     0x05, 0x0        	BCF	_GPIObits,0
+                                           _00002_DS_:
+00010c   1c03     btfss   0x03, 0x0        	BTFSS	STATUS,0
+00010d   2910     goto    0x0110           	GOTO	_00003_DS_
+00010e   1283     bcf     0x03, 0x5        	BANKSEL	_GPIObits
+00010f   1405     bsf     0x05, 0x0        	BSF	_GPIObits,0
+                                           _00003_DS_:
+                                           ;	.line	31; "bingo.c"	delay(time);
+000110   300a     movlw   0x0a             	MOVLW	0x0a
+000111   00ff     movwf   0x7f             	MOVWF	STK00
+000112   3000     movlw   0x00             	MOVLW	0x00
+                                           	PAGESEL	_delay
+000113   20d2     call    0x00d2           	CALL	_delay
+                                           	PAGESEL	$
+000114   28fd     goto    0x00fd           	GOTO	_00142_DS_
+                                           ;	.line	33; "bingo.c"	}
+000115   0008     return                   	RETURN	
+                                           ; exit point of _main
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;has an exit
+                                           ;9 compiler assigned registers:
+                                           ;   r0x1000
+                                           ;   STK00
+                                           ;   r0x1001
+                                           ;   r0x1002
+                                           ;   r0x1003
+                                           ;   r0x1004
+                                           ;   r0x1005
+                                           ;   r0x1006
+                                           ;   r0x1007
+                                           ;; Starting pCode block
+                                           S_bingo__delay	code
+                                           _delay:
+                                           ; 2 exit points
+                                           ;	.line	17; "bingo.c"	void delay(unsigned int time){
+0000d2   1683     bsf     0x03, 0x5        	BANKSEL	r0x1000
+0000d3   00ad     movwf   0x2d             	MOVWF	r0x1000
+0000d4   087f     movf    0x7f, 0x0        	MOVF	STK00,W
+0000d5   00ac     movwf   0x2c             	MOVWF	r0x1001
+                                           ;	.line	20; "bingo.c"	for(i=0;i<time;(i)++)
+0000d6   01ae     clrf    0x2e             	CLRF	r0x1002
+0000d7   01af     clrf    0x2f             	CLRF	r0x1003
+                                           _00115_DS_:
+0000d8   1683     bsf     0x03, 0x5        	BANKSEL	r0x1000
+0000d9   082d     movf    0x2d, 0x0        	MOVF	r0x1000,W
+0000da   022f     subwf   0x2f, 0x0        	SUBWF	r0x1003,W
+0000db   1d03     btfss   0x03, 0x2        	BTFSS	STATUS,2
+0000dc   28df     goto    0x00df           	GOTO	_00136_DS_
+0000dd   082c     movf    0x2c, 0x0        	MOVF	r0x1001,W
+0000de   022e     subwf   0x2e, 0x0        	SUBWF	r0x1002,W
+                                           _00136_DS_:
+0000df   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
+0000e0   28fb     goto    0x00fb           	GOTO	_00117_DS_
+                                           ;;genSkipc:3307: created from rifx:0x7ffd91b937a0
+                                           ;	.line	21; "bingo.c"	for(j = 0; j<200; (j)++);
+0000e1   30c8     movlw   0xc8             	MOVLW	0xc8
+0000e2   1683     bsf     0x03, 0x5        	BANKSEL	r0x1004
+0000e3   00b0     movwf   0x30             	MOVWF	r0x1004
+0000e4   01b1     clrf    0x31             	CLRF	r0x1005
+                                           _00113_DS_:
+0000e5   30ff     movlw   0xff             	MOVLW	0xff
+0000e6   1683     bsf     0x03, 0x5        	BANKSEL	r0x1004
+0000e7   0730     addwf   0x30, 0x0        	ADDWF	r0x1004,W
+0000e8   00b2     movwf   0x32             	MOVWF	r0x1006
+0000e9   30ff     movlw   0xff             	MOVLW	0xff
+0000ea   00b3     movwf   0x33             	MOVWF	r0x1007
+0000eb   0831     movf    0x31, 0x0        	MOVF	r0x1005,W
+0000ec   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
+0000ed   0f31     incfsz  0x31, 0x0        	INCFSZ	r0x1005,W
+0000ee   07b3     addwf   0x33, 0x1        	ADDWF	r0x1007,F
+0000ef   0832     movf    0x32, 0x0        	MOVF	r0x1006,W
+0000f0   00b0     movwf   0x30             	MOVWF	r0x1004
+0000f1   0833     movf    0x33, 0x0        	MOVF	r0x1007,W
+0000f2   00b1     movwf   0x31             	MOVWF	r0x1005
+0000f3   0833     movf    0x33, 0x0        	MOVF	r0x1007,W
+0000f4   0432     iorwf   0x32, 0x0        	IORWF	r0x1006,W
+0000f5   1d03     btfss   0x03, 0x2        	BTFSS	STATUS,2
+0000f6   28e5     goto    0x00e5           	GOTO	_00113_DS_
+                                           ;	.line	20; "bingo.c"	for(i=0;i<time;(i)++)
+0000f7   0aae     incf    0x2e, 0x1        	INCF	r0x1002,F
+0000f8   1903     btfsc   0x03, 0x2        	BTFSC	STATUS,2
+0000f9   0aaf     incf    0x2f, 0x1        	INCF	r0x1003,F
+0000fa   28d8     goto    0x00d8           	GOTO	_00115_DS_
+                                           _00117_DS_:
+                                           ;	.line	22; "bingo.c"	}
+0000fb   0008     return                   	RETURN	
+                                           ; exit point of _delay
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;has an exit
+                                           ;; Starting pCode block
+                                           S_bingo__setup	code
+                                           _setup:
+                                           ; 2 exit points
+                                           ;	.line	10; "bingo.c"	TRISIO = 0x00; // Todos los pines quedan como salidas, el bit[3] siempre lee 1.
+00011e   1683     bsf     0x03, 0x5        	BANKSEL	_TRISIO
+00011f   0185     clrf    0x05             	CLRF	_TRISIO
+                                           ;	.line	11; "bingo.c"	GPIO = 0x00;
+000120   1283     bcf     0x03, 0x5        	BANKSEL	_GPIO
+000121   0185     clrf    0x05             	CLRF	_GPIO
+                                           ;	.line	15; "bingo.c"	}
+000122   0008     return                   	RETURN	
+                                           ; exit point of _setup
+                                           
+                                           
+                                           ;	code size estimation:
+                                           ;	   61+   16 =    77 instructions (  186 byte)
+                                           
+                                           	end

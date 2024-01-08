@@ -1,0 +1,79 @@
+<circuit version="1.0.0-SR1" rev="1448" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Ground" CircId="Ground-3" mainComp="false" Show_id="false" Show_Val="false" Pos="872,652" rotation="0" hflip="1" vflip="1" label="Ground-3" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="BcdTo7S" CircId="BcdTo7S-4" mainComp="false" Show_id="false" Show_Val="false" Pos="792,500" rotation="0" hflip="1" vflip="1" label="BcdTo7S-4" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Inverted="false" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Tpd_ps="10000 ps" Tr_ps="3000 ps" Tf_ps="4000 ps" />
+
+<item itemtype="Ground" CircId="Ground-6" mainComp="false" Show_id="false" Show_Val="false" Pos="904,652" rotation="0" hflip="1" vflip="1" label="Ground-6" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Seven Segment" CircId="Seven Segment-9" mainComp="false" Show_id="false" Show_Val="false" Pos="864,500" rotation="0" hflip="1" vflip="1" label="Seven Segment-9" idLabPos="20,-44" labelrot="0" valLabPos="-16,20" valLabRot="0" NumDisplays="2 _7seg" Color="Red" Vertical_Pins="false" CommonCathode="true" Threshold="2.4 V" MaxCurrent="0.02 A" Resistance="1 Ω" />
+
+<item itemtype="Rail" CircId="Rail-10" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="692,500" rotation="0" hflip="1" vflip="1" label="Rail-10" idLabPos="-16,-24" labelrot="0" valLabPos="-14,8" valLabRot="0" Voltage="5 V" />
+
+<item itemtype="Rail" CircId="Rail-34" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="696,528" rotation="0" hflip="1" vflip="1" label="Rail-34" idLabPos="-16,-24" labelrot="0" valLabPos="-14,8" valLabRot="0" Voltage="5 V" />
+
+<item itemtype="Rail" CircId="Rail-35" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="700,552" rotation="0" hflip="1" vflip="1" label="Rail-35" idLabPos="-16,-24" labelrot="0" valLabPos="-14,8" valLabRot="0" Voltage="0 V" />
+
+<item itemtype="Clock" CircId="Clock-51" mainComp="false" Show_id="false" Show_Val="false" Pos="748,632" rotation="0" hflip="1" vflip="1" label="Clock-51" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="true" Running="true" Voltage="5 V" Freq="1 Hz" Always_On="true" />
+
+<item itemtype="BJT" CircId="BJT-69" mainComp="false" Show_id="false" Show_Val="false" Pos="864,604" rotation="0" hflip="1" vflip="1" label="BJT-69" idLabPos="18,0" labelrot="0" valLabPos="-16,20" valLabRot="0" PNP="false" Gain="100" Vcrit="0.670736 V" />
+
+<item itemtype="BJT" CircId="BJT-70" mainComp="false" Show_id="false" Show_Val="false" Pos="896,588" rotation="0" hflip="1" vflip="1" label="BJT-70" idLabPos="18,0" labelrot="0" valLabPos="-16,20" valLabRot="0" PNP="false" Gain="100" Vcrit="0.670736 V" />
+
+<item itemtype="Rail" CircId="Rail-124" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="696,528" rotation="0" hflip="1" vflip="1" label="Rail-124" idLabPos="-16,-24" labelrot="0" valLabPos="-14,8" valLabRot="0" Voltage="5 V" />
+
+<item itemtype="Rail" CircId="Rail-125" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="692,500" rotation="0" hflip="1" vflip="1" label="Rail-125" idLabPos="-16,-24" labelrot="0" valLabPos="-14,8" valLabRot="0" Voltage="5 V" />
+
+<item itemtype="FreqMeter" CircId="FreqMeter-163" mainComp="false" Show_id="false" Show_Val="false" Pos="836,708" rotation="0" hflip="1" vflip="1" label="FreqMeter-163" idLabPos="-32,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Filter="0.1 V" />
+
+<item itemtype="Buffer" CircId="Buffer-167" mainComp="false" Show_id="false" Show_Val="false" Pos="816,604" rotation="0" hflip="1" vflip="1" label="Buffer-167" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Tristate="false" Inverted="true" Open_Collector="false" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" initHigh="false" Tpd_ps="10000 ps" Tr_ps="3000 ps" Tf_ps="4000 ps" />
+
+<item itemtype="Clock" CircId="Clock-190" mainComp="false" Show_id="false" Show_Val="false" Pos="692,480" rotation="0" hflip="1" vflip="1" label="Clock-190" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="true" Running="true" Voltage="5 V" Freq="1 Hz" Always_On="true" />
+
+<item itemtype="Node" CircId="Node-165" mainComp="false" Pos="780,632" />
+
+<item itemtype="Node" CircId="Node-188" mainComp="false" Pos="780,604" />
+
+<item itemtype="Connector" uid="connector-168" startpinid="BcdTo7S-4-out0" endpinid="Seven Segment-9-pin_a" pointList="816,476,840,476" />
+
+<item itemtype="Connector" uid="connector-169" startpinid="BcdTo7S-4-out3" endpinid="Seven Segment-9-pin_d" pointList="816,500,840,500" />
+
+<item itemtype="Connector" uid="connector-170" startpinid="Rail-10-outnod" endpinid="BcdTo7S-4-in1" pointList="708,500,768,500" />
+
+<item itemtype="Connector" uid="connector-171" startpinid="BcdTo7S-4-out4" endpinid="Seven Segment-9-pin_e" pointList="816,508,840,508" />
+
+<item itemtype="Connector" uid="connector-172" startpinid="BcdTo7S-4-out2" endpinid="Seven Segment-9-pin_c" pointList="816,492,840,492" />
+
+<item itemtype="Connector" uid="connector-173" startpinid="BcdTo7S-4-out1" endpinid="Seven Segment-9-pin_b" pointList="816,484,840,484" />
+
+<item itemtype="Connector" uid="connector-174" startpinid="BcdTo7S-4-out6" endpinid="Seven Segment-9-pin_g" pointList="816,524,840,524" />
+
+<item itemtype="Connector" uid="connector-175" startpinid="BcdTo7S-4-out5" endpinid="Seven Segment-9-pin_f" pointList="816,516,840,516" />
+
+<item itemtype="Connector" uid="connector-176" startpinid="Rail-34-outnod" endpinid="BcdTo7S-4-in2" pointList="712,528,736,528,736,508,768,508" />
+
+<item itemtype="Connector" uid="connector-177" startpinid="Rail-35-outnod" endpinid="BcdTo7S-4-in3" pointList="716,552,744,552,744,516,768,516" />
+
+<item itemtype="Connector" uid="connector-178" startpinid="Seven Segment-9-pin_commonb" endpinid="BJT-70-collector" pointList="904,532,904,572" />
+
+<item itemtype="Connector" uid="connector-179" startpinid="BJT-70-emiter" endpinid="Ground-6-Gnd" pointList="904,604,904,636" />
+
+<item itemtype="Connector" uid="connector-180" startpinid="Seven Segment-9-pin_commona" endpinid="BJT-69-collector" pointList="872,532,872,588" />
+
+<item itemtype="Connector" uid="connector-181" startpinid="BJT-69-emiter" endpinid="Ground-3-Gnd" pointList="872,620,872,636" />
+
+<item itemtype="Connector" uid="connector-183" startpinid="Clock-51-outnod" endpinid="Node-165-0" pointList="764,632,780,632" />
+
+<item itemtype="Connector" uid="connector-184" startpinid="FreqMeter-163-lPin" endpinid="Node-165-1" pointList="796,708,796,632,780,632" />
+
+<item itemtype="Connector" uid="connector-185" startpinid="Node-165-2" endpinid="Node-188-0" pointList="780,632,780,604" />
+
+<item itemtype="Connector" uid="connector-186" startpinid="Buffer-167-out" endpinid="BJT-69-base" pointList="832,604,848,604" />
+
+<item itemtype="Connector" uid="Connector-187" startpinid="Buffer-167-in0" endpinid="Node-188-1" pointList="800,604,780,604" />
+
+<item itemtype="Connector" uid="Connector-189" startpinid="Node-188-2" endpinid="BJT-70-base" pointList="780,604,780,588,880,588" />
+
+<item itemtype="Connector" uid="Connector-191" startpinid="Clock-190-outnod" endpinid="BcdTo7S-4-in0" pointList="708,480,768,480,768,492" />
+
+</circuit>
