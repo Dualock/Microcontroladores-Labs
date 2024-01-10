@@ -3,7 +3,7 @@ MCU=-p12f683
 CC=sdcc
 LD=sdcc
 CFLAGS=-I. -I/usr/local/share/sdcc/non-free/include
-TARGET=bingo
+TARGET=boton_contador
 
 SRCS = boton_contador.c
 
