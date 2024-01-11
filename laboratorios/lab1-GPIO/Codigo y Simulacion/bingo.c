@@ -50,9 +50,9 @@ void delay(unsigned int time){
 *	Retorna: num%100
 */
 unsigned char lfsr(unsigned char num) {
-    // El polinomio utilizado es x^8 + x^6 + x^5 + x^4 + 1
+    // El polinomio utilizado es x^7 + x^5 + x^4 + 1
     unsigned char feedback = (num >> 7) ^ (num >> 5) ^ (num >> 4) ^ 1;
-    num = (num << 1) | feedback;
+    num = (num << 1) | feedback; //corrimiento hacia la derecha
     // Se retorna el numero modulo de 100 para que el resultado este entre 0 y 100
     return num%100;
 }
