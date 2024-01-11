@@ -8,7 +8,7 @@
 
 <item itemtype="Seven Segment" CircId="Seven Segment-9" mainComp="false" Show_id="false" Show_Val="false" Pos="864,500" rotation="0" hflip="1" vflip="1" label="Seven Segment-9" idLabPos="20,-44" labelrot="0" valLabPos="-16,20" valLabRot="0" NumDisplays="2 _7seg" Color="Red" Vertical_Pins="false" CommonCathode="true" Threshold="2.4 V" MaxCurrent="0.02 A" Resistance="1 Ω" />
 
-<item itemtype="Clock" CircId="Clock-51" mainComp="false" Show_id="false" Show_Val="false" Pos="748,632" rotation="0" hflip="1" vflip="1" label="Clock-51" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="true" Running="true" Voltage="5 V" Freq="60 Hz" Always_On="true" />
+<item itemtype="Clock" CircId="Clock-51" mainComp="false" Show_id="false" Show_Val="false" Pos="700,712" rotation="0" hflip="1" vflip="1" label="Clock-51" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="true" Running="true" Voltage="5 V" Freq="5 Hz" Always_On="true" />
 
 <item itemtype="BJT" CircId="BJT-69" mainComp="false" Show_id="false" Show_Val="false" Pos="864,604" rotation="0" hflip="1" vflip="1" label="BJT-69" idLabPos="18,0" labelrot="0" valLabPos="-16,20" valLabRot="0" PNP="false" Gain="100" Vcrit="0.670736 V" />
 
@@ -16,60 +16,124 @@
 
 <item itemtype="FreqMeter" CircId="FreqMeter-163" mainComp="false" Show_id="false" Show_Val="false" Pos="836,708" rotation="0" hflip="1" vflip="1" label="FreqMeter-163" idLabPos="-32,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Filter="0.1 V" />
 
-<item itemtype="Buffer" CircId="Buffer-167" mainComp="false" Show_id="false" Show_Val="false" Pos="816,604" rotation="0" hflip="1" vflip="1" label="Buffer-167" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Tristate="false" Inverted="true" Open_Collector="false" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" initHigh="false" Tpd_ps="10000 ps" Tr_ps="3000 ps" Tf_ps="4000 ps" />
-
-<item itemtype="Clock" CircId="Clock-190" mainComp="false" Show_id="false" Show_Val="false" Pos="692,480" rotation="0" hflip="1" vflip="1" label="Clock-190" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="true" Running="true" Voltage="5 V" Freq="60 Hz" Always_On="true" />
+<item itemtype="Clock" CircId="Clock-190" mainComp="false" Show_id="false" Show_Val="false" Pos="692,480" rotation="0" hflip="1" vflip="1" label="Clock-190" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="true" Running="true" Voltage="5 V" Freq="5 Hz" Always_On="true" />
 
 <item itemtype="Fixed Voltage" CircId="Fixed Voltage-255" mainComp="false" Show_id="false" Show_Val="false" Pos="688,500" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-255" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="false" Voltage="5 V" />
 
-<item itemtype="Fixed Voltage" CircId="Fixed Voltage-257" mainComp="false" Show_id="false" Show_Val="false" Pos="688,520" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-257" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="false" Voltage="5 V" />
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-257" mainComp="false" Show_id="false" Show_Val="false" Pos="688,520" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-257" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="true" Voltage="5 V" />
 
-<item itemtype="Fixed Voltage" CircId="Fixed Voltage-259" mainComp="false" Show_id="false" Show_Val="false" Pos="688,540" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-259" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="false" Voltage="5 V" />
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-259" mainComp="false" Show_id="false" Show_Val="false" Pos="688,540" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-259" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="true" Voltage="5 V" />
 
-<item itemtype="Node" CircId="Node-165" mainComp="false" Pos="780,632" />
+<item itemtype="And Gate" CircId="And Gate-281" mainComp="false" Show_id="false" Show_Val="false" Pos="696,580" rotation="0" hflip="1" vflip="1" label="And Gate-281" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Inputs="2" Inverted="false" Open_Collector="false" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" initHigh="false" Tpd_ps="10000 ps" Tr_ps="3000 ps" Tf_ps="4000 ps" />
 
-<item itemtype="Node" CircId="Node-188" mainComp="false" Pos="780,604" />
+<item itemtype="Buffer" CircId="Buffer-282" mainComp="false" Show_id="false" Show_Val="false" Pos="736,580" rotation="0" hflip="1" vflip="1" label="Buffer-282" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Tristate="false" Inverted="true" Open_Collector="false" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" initHigh="false" Tpd_ps="10000 ps" Tr_ps="3000 ps" Tf_ps="4000 ps" />
 
-<item itemtype="Connector" uid="connector-260" startpinid="BcdTo7S-4-out0" endpinid="Seven Segment-9-pin_a" pointList="816,476,840,476" />
+<item itemtype="Mux" CircId="Mux-283" mainComp="false" Show_id="false" Show_Val="false" Pos="728,652" rotation="0" hflip="1" vflip="1" label="Mux-283" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Address_Bits="1 _bits" Invert_Inputs="false" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Tpd_ps="10000 ps" Tr_ps="3000 ps" Tf_ps="4000 ps" />
 
-<item itemtype="Connector" uid="connector-261" startpinid="BcdTo7S-4-out3" endpinid="Seven Segment-9-pin_d" pointList="816,500,840,500" />
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-285" mainComp="false" Show_id="false" Show_Val="false" Pos="640,644" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-285" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="true" Voltage="5 V" />
 
-<item itemtype="Connector" uid="connector-262" startpinid="BcdTo7S-4-out4" endpinid="Seven Segment-9-pin_e" pointList="816,508,840,508" />
+<item itemtype="Ground" CircId="Ground-287" mainComp="false" Show_id="false" Show_Val="false" Pos="684,684" rotation="0" hflip="1" vflip="1" label="Ground-287" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
-<item itemtype="Connector" uid="connector-263" startpinid="BcdTo7S-4-out2" endpinid="Seven Segment-9-pin_c" pointList="816,492,840,492" />
+<item itemtype="And Gate" CircId="And Gate-295" mainComp="false" Show_id="false" Show_Val="false" Pos="812,588" rotation="0" hflip="1" vflip="1" label="And Gate-295" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Inputs="2" Inverted="false" Open_Collector="false" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" initHigh="false" Tpd_ps="10000 ps" Tr_ps="3000 ps" Tf_ps="4000 ps" />
 
-<item itemtype="Connector" uid="connector-264" startpinid="BcdTo7S-4-out1" endpinid="Seven Segment-9-pin_b" pointList="816,484,840,484" />
+<item itemtype="And Gate" CircId="And Gate-316" mainComp="false" Show_id="false" Show_Val="false" Pos="816,628" rotation="0" hflip="1" vflip="1" label="And Gate-316" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Inputs="2" Inverted="false" Open_Collector="false" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" initHigh="false" Tpd_ps="10000 ps" Tr_ps="3000 ps" Tf_ps="4000 ps" />
 
-<item itemtype="Connector" uid="connector-265" startpinid="BcdTo7S-4-out6" endpinid="Seven Segment-9-pin_g" pointList="816,524,840,524" />
+<item itemtype="Probe" CircId="Probe-333" mainComp="false" Show_id="false" Show_Val="true" Pos="816,552" rotation="-45" hflip="1" vflip="1" label="Probe-333" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
 
-<item itemtype="Connector" uid="connector-266" startpinid="BcdTo7S-4-out5" endpinid="Seven Segment-9-pin_f" pointList="816,516,840,516" />
+<item itemtype="Probe" CircId="Probe-367" mainComp="false" Show_id="false" Show_Val="true" Pos="784,640" rotation="-45" hflip="1" vflip="1" label="Probe-367" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
 
-<item itemtype="Connector" uid="connector-267" startpinid="Seven Segment-9-pin_commonb" endpinid="BJT-70-collector" pointList="904,532,904,572" />
+<item itemtype="Probe" CircId="Probe-371" mainComp="false" Show_id="false" Show_Val="true" Pos="784,552" rotation="-45" hflip="1" vflip="1" label="Probe-371" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
 
-<item itemtype="Connector" uid="connector-268" startpinid="BJT-70-emiter" endpinid="Ground-6-Gnd" pointList="904,604,904,636" />
+<item itemtype="Probe" CircId="Probe-375" mainComp="false" Show_id="false" Show_Val="true" Pos="820,600" rotation="-45" hflip="1" vflip="1" label="Probe-375" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
 
-<item itemtype="Connector" uid="connector-269" startpinid="Seven Segment-9-pin_commona" endpinid="BJT-69-collector" pointList="872,532,872,588" />
+<item itemtype="Node" CircId="Node-320" mainComp="false" Pos="760,580" />
 
-<item itemtype="Connector" uid="connector-270" startpinid="BJT-69-emiter" endpinid="Ground-3-Gnd" pointList="872,620,872,636" />
+<item itemtype="Node" CircId="Node-327" mainComp="false" Pos="720,540" />
 
-<item itemtype="Connector" uid="connector-271" startpinid="Clock-51-outnod" endpinid="Node-165-0" pointList="764,632,780,632" />
+<item itemtype="Node" CircId="Node-330" mainComp="false" Pos="736,520" />
 
-<item itemtype="Connector" uid="connector-272" startpinid="FreqMeter-163-lPin" endpinid="Node-165-1" pointList="796,708,796,632,780,632" />
+<item itemtype="Node" CircId="Node-365" mainComp="false" Pos="788,580" />
 
-<item itemtype="Connector" uid="connector-273" startpinid="Node-165-2" endpinid="Node-188-0" pointList="780,632,780,604" />
+<item itemtype="Node" CircId="Node-369" mainComp="false" Pos="768,660" />
 
-<item itemtype="Connector" uid="connector-274" startpinid="Buffer-167-out" endpinid="BJT-69-base" pointList="832,604,848,604" />
+<item itemtype="Node" CircId="Node-373" mainComp="false" Pos="768,592" />
 
-<item itemtype="Connector" uid="connector-275" startpinid="Buffer-167-in0" endpinid="Node-188-1" pointList="800,604,780,604" />
+<item itemtype="Node" CircId="Node-377" mainComp="false" Pos="788,624" />
 
-<item itemtype="Connector" uid="connector-276" startpinid="Node-188-2" endpinid="BJT-70-base" pointList="780,604,780,588,880,588" />
+<item itemtype="Connector" uid="connector-334" startpinid="BcdTo7S-4-out0" endpinid="Seven Segment-9-pin_a" pointList="816,476,840,476" />
 
-<item itemtype="Connector" uid="connector-277" startpinid="Clock-190-outnod" endpinid="BcdTo7S-4-in0" pointList="708,480,768,480,768,492" />
+<item itemtype="Connector" uid="connector-335" startpinid="BcdTo7S-4-out3" endpinid="Seven Segment-9-pin_d" pointList="816,500,840,500" />
 
-<item itemtype="Connector" uid="connector-278" startpinid="Fixed Voltage-255-outnod" endpinid="BcdTo7S-4-in1" pointList="704,500,768,500" />
+<item itemtype="Connector" uid="connector-336" startpinid="BcdTo7S-4-out4" endpinid="Seven Segment-9-pin_e" pointList="816,508,840,508" />
 
-<item itemtype="Connector" uid="connector-279" startpinid="Fixed Voltage-257-outnod" endpinid="BcdTo7S-4-in2" pointList="704,520,744,520,744,508,768,508" />
+<item itemtype="Connector" uid="connector-337" startpinid="BcdTo7S-4-out2" endpinid="Seven Segment-9-pin_c" pointList="816,492,840,492" />
 
-<item itemtype="Connector" uid="connector-280" startpinid="Fixed Voltage-259-outnod" endpinid="BcdTo7S-4-in3" pointList="704,540,756,540,756,516,768,516" />
+<item itemtype="Connector" uid="connector-338" startpinid="BcdTo7S-4-out1" endpinid="Seven Segment-9-pin_b" pointList="816,484,840,484" />
+
+<item itemtype="Connector" uid="connector-339" startpinid="BcdTo7S-4-out6" endpinid="Seven Segment-9-pin_g" pointList="816,524,840,524" />
+
+<item itemtype="Connector" uid="connector-340" startpinid="BcdTo7S-4-out5" endpinid="Seven Segment-9-pin_f" pointList="816,516,840,516" />
+
+<item itemtype="Connector" uid="connector-341" startpinid="Seven Segment-9-pin_commonb" endpinid="BJT-70-collector" pointList="904,532,904,572" />
+
+<item itemtype="Connector" uid="connector-342" startpinid="BJT-70-emiter" endpinid="Ground-6-Gnd" pointList="904,604,904,636" />
+
+<item itemtype="Connector" uid="connector-343" startpinid="Seven Segment-9-pin_commona" endpinid="BJT-69-collector" pointList="872,532,872,588" />
+
+<item itemtype="Connector" uid="connector-344" startpinid="BJT-69-emiter" endpinid="Ground-3-Gnd" pointList="872,620,872,636" />
+
+<item itemtype="Connector" uid="connector-345" startpinid="Clock-190-outnod" endpinid="BcdTo7S-4-in0" pointList="708,480,768,480,768,492" />
+
+<item itemtype="Connector" uid="connector-346" startpinid="Fixed Voltage-255-outnod" endpinid="BcdTo7S-4-in1" pointList="704,500,768,500" />
+
+<item itemtype="Connector" uid="connector-347" startpinid="Fixed Voltage-257-outnod" endpinid="Node-330-0" pointList="704,520,736,520" />
+
+<item itemtype="Connector" uid="connector-348" startpinid="Fixed Voltage-259-outnod" endpinid="Node-327-0" pointList="704,540,720,540" />
+
+<item itemtype="Connector" uid="connector-349" startpinid="Clock-51-outnod" endpinid="Mux-283-in8" pointList="716,712,716,676,728,676" />
+
+<item itemtype="Connector" uid="connector-350" startpinid="Fixed Voltage-285-outnod" endpinid="Mux-283-in0" pointList="656,644,704,644" />
+
+<item itemtype="Connector" uid="connector-351" startpinid="Ground-287-Gnd" endpinid="Mux-283-in1" pointList="684,668,684,652,704,652" />
+
+<item itemtype="Connector" uid="connector-352" startpinid="And Gate-281-out" endpinid="Buffer-282-in0" pointList="712,580,720,580" />
+
+<item itemtype="Connector" uid="connector-353" startpinid="Buffer-282-out" endpinid="Node-320-0" pointList="752,580,760,580" />
+
+<item itemtype="Connector" uid="connector-354" startpinid="Mux-283-out0" endpinid="Node-373-0" pointList="752,652,752,592,768,592" />
+
+<item itemtype="Connector" uid="connector-355" startpinid="Mux-283-out1" endpinid="Node-369-0" pointList="752,660,768,660" />
+
+<item itemtype="Connector" uid="connector-356" startpinid="Node-320-2" endpinid="Node-365-0" pointList="760,580,788,580" />
+
+<item itemtype="Connector" uid="connector-357" startpinid="Node-320-1" endpinid="Node-377-0" pointList="760,580,760,624,788,624" />
+
+<item itemtype="Connector" uid="connector-358" startpinid="And Gate-316-out" endpinid="BJT-69-base" pointList="832,628,832,604,848,604" />
+
+<item itemtype="Connector" uid="connector-359" startpinid="And Gate-295-out" endpinid="BJT-70-base" pointList="828,588,880,588" />
+
+<item itemtype="Connector" uid="connector-360" startpinid="Node-327-2" endpinid="BcdTo7S-4-in3" pointList="720,540,756,540,756,516,768,516" />
+
+<item itemtype="Connector" uid="connector-362" startpinid="Node-330-2" endpinid="BcdTo7S-4-in2" pointList="736,520,744,520,744,508,768,508" />
+
+<item itemtype="Connector" uid="connector-363" startpinid="Node-330-1" endpinid="And Gate-281-in0" pointList="736,520,736,560,668,560,668,576,680,576" />
+
+<item itemtype="Connector" uid="Connector-364" startpinid="Probe-333-inpin" endpinid="Node-365-1" pointList="800,568,800,580,788,580" />
+
+<item itemtype="Connector" uid="Connector-366" startpinid="Node-365-2" endpinid="And Gate-295-in0" pointList="788,580,796,580,796,584" />
+
+<item itemtype="Connector" uid="Connector-368" startpinid="Probe-367-inpin" endpinid="Node-369-1" pointList="768,656,768,660" />
+
+<item itemtype="Connector" uid="Connector-370" startpinid="Node-369-2" endpinid="And Gate-316-in1" pointList="768,660,800,660,800,632" />
+
+<item itemtype="Connector" uid="Connector-372" startpinid="Probe-371-inpin" endpinid="Node-373-1" pointList="768,568,768,592" />
+
+<item itemtype="Connector" uid="Connector-374" startpinid="Node-373-2" endpinid="And Gate-295-in1" pointList="768,592,796,592" />
+
+<item itemtype="Connector" uid="Connector-376" startpinid="Probe-375-inpin" endpinid="Node-377-1" pointList="804,616,788,616,788,624" />
+
+<item itemtype="Connector" uid="Connector-378" startpinid="Node-377-2" endpinid="And Gate-316-in0" pointList="788,624,800,624" />
+
+<item itemtype="Connector" uid="connector-361" startpinid="Node-327-1" endpinid="And Gate-281-in1" pointList="720,540,720,552,656,552,656,584,680,584" />
 
 </circuit>
