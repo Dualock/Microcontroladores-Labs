@@ -1,13 +1,13 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c99
 
-SRC = state_machine.c          # Nombre del archivo fuente
-HEADERS = state_machine.h   # Nombre del archivo de encabezado
+SRC = main.c state_machine.c        # Nombre del archivo fuente
+#HEADERS = state_machine.h  # Nombres de los archivos de encabezado
 OBJ = $(SRC:.c=.o)
 
-all: myprogram
+all: exe
 
-myprogram: $(OBJ)
+exe: $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $@
 
 %.o: %.c $(HEADERS)
