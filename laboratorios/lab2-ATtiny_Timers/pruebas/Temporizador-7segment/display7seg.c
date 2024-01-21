@@ -54,6 +54,7 @@ void map_bcd(int num){
 			PORTA |= (1 << BCD0);
 			break;
 		default:
+			// Hacer algo por default
       break;
     }
 }
