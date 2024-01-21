@@ -4,7 +4,7 @@ CC=avr-gcc
 OBJCOPY=avr-objcopy
 CFLAGS=-std=c99 -Wall -g -Os -mmcu=${MCU} -DF_CPU=${F_CPU} -I.
 TARGET=main
-SRCS=wash_machine.c
+SRCS=wash_machine.c display7seg.c
 
 all:
 	${CC} ${CFLAGS} -o ${TARGET}.bin ${SRCS}
