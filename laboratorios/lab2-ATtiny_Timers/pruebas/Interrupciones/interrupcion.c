@@ -11,14 +11,14 @@ volatile int play;
 ISR(INT0_vect)        // Interrupt service routine 
 {
   PORTB ^= (1<<PB3);    // Toggling the PB5 pin
-  mode++;
+  play++;
 }
 
 // Interrupt service routine for play/pause button
 ISR(INT1_vect)        // Interrupt service routine 
 {
   PORTB ^= (1<<PB4);    // Toggling the PB5 pin
-  play++;
+  mode++;
 }
 
 
@@ -37,7 +37,7 @@ void initExternalInterrupts(){
 void setup()
 {
 	// set PB6, PB5, PB4 and PB3 as output(LED)
-  DDRB |= (1<<PB6)|(1<<PB5)|(1<<PB4)|(1<<PB3);
+  DDRB |= (1<<DDB6)|(1<<DDB5)|(1<<DDB4)|(1<<DDB3);
   initExternalInterrupts();
 }
 

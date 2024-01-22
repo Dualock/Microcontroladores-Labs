@@ -24,7 +24,7 @@ typedef struct {
 void Water() {
   // clear indicator bits 2 and 1
   PORTB &= ~((1 << STATE_INDICATOR_BIT2) | (1 << STATE_INDICATOR_BIT1));
-  PORTD |= (1 << MOTOR_ENABLE);
+  //PORTD |= (1 << MOTOR_ENABLE);
   // 001
   PORTB |= (1 << STATE_INDICATOR_BIT0);
 }
@@ -56,10 +56,10 @@ void Spin() {
   PORTB |= (1 << STATE_INDICATOR_BIT2);
 }
 void Idle() {
-	//clear all indicator bits
-	PORTB &= ~((1 << STATE_INDICATOR_BIT0) | (1 << STATE_INDICATOR_BIT1))|(1 << STATE_INDICATOR_BIT2);
+	//clear all indicator bits 000
+	PORTB &= ~((1 << STATE_INDICATOR_BIT0) | (1 << STATE_INDICATOR_BIT1) | (1 << STATE_INDICATOR_BIT2));
 	//Motor OFF
-  PORTD &= ~(1 << MOTOR_ENABLE); // clear PD4
+ // PORTD &= ~(1 << MOTOR_ENABLE); // clear PD4
   
 }
 
@@ -78,8 +78,8 @@ static stateTransitionArray_struct stateTransMatrix[] = {
     { ST_IDLE,     		EV_NONE,     			ST_IDLE				},
     { ST_IDLE,     		EV_PLAY,     			ST_WATER			},
     { ST_WATER,     	EV_NONE,     			ST_WATER			},
-    { ST_WATER,     	EV_PLAY,     			ST_WATER			},
     { ST_WATER,     	EV_TIME_OUT,     	ST_WASH				},
+    { ST_WATER,     	EV_PLAY,     			ST_WATER			},
     { ST_WASH,     		EV_NONE,     			ST_WASH				},
     { ST_WASH,     		EV_PLAY,     			ST_WASH				},
     { ST_WASH,   			EV_TIME_OUT,      ST_RINSE			},

@@ -33,7 +33,7 @@ void pauseHandler(stateMachine_struct * stateMachine);
 ISR(TIMER0_COMPA_vect){
 	if(ticks_per_second == 0){
 		PORTB ^= (1<<PORTB5);
-		ticks_per_second = 40;
+		ticks_per_second = 80;
 		time_left--;
 	}
 	else{
@@ -92,21 +92,20 @@ int main(void)
 	StateMachine_Init(&stateMachine);
 	
   while (1) {
-  	// Estado inactivo
+  	pauseHandler(&stateMachine);
 		if(strcmp(StateMachine_GetState(stateMachine.currState), "ST_IDLE") == 0){
 			//load size selection only available on idle mode
+			StateMachine_Iterate(&stateMachine, EV_NONE);
+			//pauseHandler(&stateMachine);
 			loadSize(mode, time_array);
 			//after selecting mode, set the timer of water as a time left
 			time_left = time_array[0];
 			// pause handler to activate TIMSK
-			pauseHandler(&stateMachine);
-			//
 			iterator = 0;
 		}
 		
 		else if(time_left != 0){
 			PORTB |= (1<<SWITCH_7SEG); //turn on the 7 segments
-			pauseHandler(&stateMachine);
 			//StateMachine_Iterate(&stateMachine, EV_NONE);
 			tens = time_left/10;
 			units = time_left%10;
@@ -118,8 +117,13 @@ int main(void)
 			multiplexar(0,0);
 			StateMachine_Iterate(&stateMachine, EV_TIME_OUT);
 			_delay_ms(20000);
-			PORTB &= ~(1<<SWITCH_7SEG);
 			time_left = time_array[iterator];
+		}
+		else if(time_left == 0 && iterator == 3){
+			PORTB &= ~(1<<SWITCH_7SEG);
+			iterator = 0;
+			StateMachine_Iterate(&stateMachine, EV_TIME_OUT);
+			pause_flag = 1;
 		}
   }
 }
@@ -177,8 +181,6 @@ void pauseHandler(stateMachine_struct * stateMachine){
 		TIMSK = (1 << OCIE0A);
 		// Play event in the state machine
 		StateMachine_Iterate(stateMachine, EV_PLAY);
-		// Runs motor
-		//PORTD |= (1 << MOTOR_ENABLE);
 	}
 }
 
