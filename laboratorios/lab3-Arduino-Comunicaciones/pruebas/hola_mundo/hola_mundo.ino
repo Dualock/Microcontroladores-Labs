@@ -8,6 +8,6 @@ void setup() {
 }
 
 void loop() {
-  val = digitalRead(inPin);
+  val = digitalRead(in_pin);
   digitalWrite(led_pin, val);
 }
