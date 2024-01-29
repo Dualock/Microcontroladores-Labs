@@ -12,8 +12,11 @@ int voltage1 = A3;
 int voltage2 = A2;
 int voltage3 = A1;
 int voltage4 = A0;
+int ac_button = 2;
+int led_ac = 9;
 float ac_peak [4];
 float voltage = 0;
+bool ac_mode = false;
 
 void setup() {
   Serial.begin(9600);
@@ -22,6 +25,21 @@ void setup() {
   pinMode(voltage2, INPUT);
   pinMode(voltage3, INPUT);
   pinMode(voltage4, INPUT);
+  pinMode(ac_button, INPUT);
+  pinMode(led_ac, OUTPUT);
+  attachInterrupt(digitalPinToInterrupt(ac_button), interruptSR, FALLING);
+}
+void interruptSR(){
+  if(!ac_mode){
+      Serial.println("AC Mode activated!");
+      digitalWrite(led_ac, HIGH);
+      ac_mode = true;
+    }
+  else{
+    Serial.println("DC Mode activated!");
+    digitalWrite(led_ac, LOW);
+    ac_mode = false;
+  }
 }
 float readVoltage(int pin){
   float ADC_value = analogRead(pin);
@@ -48,7 +66,6 @@ void printVoltage(float voltage, int ch_number){
   }
 
 void loop() {
-  bool ac_mode = true;
   if(!ac_mode){
     voltage = readVoltage(voltage1);
     printVoltage(voltage, 1);
@@ -76,9 +93,4 @@ void loop() {
     voltage = readVoltage(voltage4);
     ac_peak[3] = acPeakFinder(ac_peak[3], voltage);
   }
-    
-  
-  
-    
-
 }
