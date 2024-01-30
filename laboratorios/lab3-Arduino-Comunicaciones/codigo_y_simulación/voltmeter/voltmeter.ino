@@ -1,4 +1,6 @@
 #include <PCD8544.h>
+#include <math.h>
+#include <SoftwareSerial.h>
 static PCD8544 lcd;
 // Macros
 
@@ -13,6 +15,11 @@ static PCD8544 lcd;
 #define LOSS_FACTOR 1.02
 #define RMS_FACTOR 0.7071
 #define CANTIDAD_CANALES 4
+
+
+#define SERIAL_PIN 8 // Pin de sw the inicio transmicion serial (en este caso, pin 8)
+
+
 int voltage1 = A3;
 int voltage2 = A2;
 int voltage3 = A1;
@@ -155,11 +162,24 @@ void loop() {
     displayVoltageLCD(v[0], v[1], v[2], v[3]);
     
     // print serial
-    /*
-    printVoltage(v[0], 1);
-    printVoltage(v[1] , 2);
-    printVoltage(v[2], 3);
-    printVoltage(v[3], 4);*/
+    if (digitalRead(SERIAL_PIN) == HIGH) { // Cuando el pin 8 está en alto se realiza la impresion serial
+      for (int i = 1; i < 5; i++) {
+        Serial.print("Voltaje");
+        Serial.print(' ');
+        Serial.print(i);
+        Serial.print("=");
+        if (i==1){
+          Serial.print(v[0]);}
+        if (i==2){
+          Serial.print(v[1]);}
+        if (i==3){
+          Serial.print(v[2]);}
+        if (i==4){
+          Serial.print(v[3]);}
+        Serial.print(' ');
+        Serial.println("V");
+    }
+}
     
     delay(1000);
     }
@@ -172,12 +192,24 @@ void loop() {
       displayVoltageLCD(ac_peak[0], ac_peak[1], ac_peak[2], ac_peak[3]);
       
       // print serial
-      /*
-      printVoltage(ac_peak[0], 1);
-      printVoltage(ac_peak[1], 2);
-      printVoltage(ac_peak[2], 3);
-      printVoltage(ac_peak[3], 4);
-      */
+      if (digitalRead(SERIAL_PIN) == HIGH) { // Cuando el pin 12 está en alto se realiza la impresion serial
+        for (int i = 1; i < 5; i++) {
+          Serial.print("Voltaje");
+          Serial.print(' ');
+          Serial.print(i);
+          Serial.print("=");
+          if (i==1){
+            Serial.print(ac_peak[0]);}
+          if (i==2){
+            Serial.print(ac_peak[1]);}
+          if (i==3){
+            Serial.print(ac_peak[2]);}
+          if (i==4){
+            Serial.print(ac_peak[3]);}
+          Serial.print(' ');
+          Serial.println("V");
+    }
+}
   }
   else if(ac_mode){
     ac_peak[0] = acPeakFinder(ac_peak[0], v[0]);
