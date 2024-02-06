@@ -40,7 +40,10 @@
 #define MSB_SHIFT 8
 // Macros para pantalla LCD
 
-#define 
+#define BATTERY_ICON_WIDTH 10
+#define BATTERY_ICON_HEIGHT 40
+#define BATTERY_POS_X 70
+#define BATTERY_POS_Y 10
 // Macros otros
 #define BATTERY_MAX 9
 
@@ -109,7 +112,7 @@ uint16_t battery_color(float battery_voltage, bool critical){
 }
 void display(int * ejes_matriz){
 	char buffer [30];
-	gfx_drawRect(battery_x, battery_y, battery_width, battery_height, LCD_BLACK); 
+	// Dibujar rectangulo de pantalla
 	
 	// Poner pantalla en blanco
 	gfx_fillScreen(LCD_WHITE);
