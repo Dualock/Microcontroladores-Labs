@@ -1,0 +1,62 @@
+import time
+import json
+import serial
+import paho.mqtt.publish as publish
+
+# Función para configurar el puerto serial
+def setup_serial(serial_port="/dev/ttyACM0", baudrate=115200):
+    try:
+        # Establecer conexión con el puerto serial
+        serial_connection = serial.Serial(port=serial_port, baudrate=baudrate, timeout=1)
+        print("Conexión establecida con éxito al puerto serial.")
+        return serial_connection
+    except serial.SerialException as e:
+        # Manejo de excepciones en caso de error en la conexión serial
+        print("Error en la conexión serial:", str(e))
+        return None
+
+# Función para leer los datos del sensor
+def read_sensor_data(ser_port):
+    if not ser_port:
+        return {"Mensaje": "No hay conexión serial."}
+
+    if ser_port.in_waiting > 0:
+        # Leer una línea de datos del sensor
+        line = ser_port.readline().decode('utf-8').strip()
+        values = line.split("\t")
+
+        # Parsear los datos del sensor
+        data = {
+            "x": float(values[0]),
+            "y": float(values[1]),
+            "z": float(values[2]),
+            "battery": float(values[3])
+        }
+
+        return data
+
+    return {"Mensaje": "No se están recibiendo datos."}
+
+# Función principal
+def main():
+    # Configuración MQTT
+    broker = "iot.eie.ucr.ac.cr"
+    port = 1883
+    token = "5pavshof7n9xx2kx8zee"  # Token de autenticación
+    username = "STM32"
+    topic = "v1/devices/me/telemetry"
+
+    # Configuración del puerto serial
+    ser_port = setup_serial()
+
+    while True:
+        # Leer los datos del sensor
+        sensor_data = read_sensor_data(ser_port)
+        if sensor_data:
+            # Publicar los datos del sensor en el tema MQTT
+            publish.single(topic, json.dumps(sensor_data), hostname=broker, port=port, auth={'username': username, 'password': token})
+            # Esperar antes de leer nuevamente los datos del sensor
+            time.sleep(1)
+
+if __name__ == "__main__":
+    main()
