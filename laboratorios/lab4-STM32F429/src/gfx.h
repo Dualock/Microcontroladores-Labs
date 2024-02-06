@@ -73,5 +73,6 @@ extern struct gfx_state __gfx_state;
 #define GFX_COLOR_GREEN          0x07E0
 #define GFX_COLOR_CYAN           0x7FFF
 #define GFX_COLOR_YELLOW         0xFFE0
+#define GFX_COLOR_ORANGE	 0x00FC
 
 #endif /* _ADAFRUIT_GFX_H */

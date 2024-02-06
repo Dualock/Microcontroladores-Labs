@@ -41,6 +41,7 @@ void lcd_draw_pixel(int x, int y, uint16_t color);
 #define LCD_YELLOW  0xE0FF
 #define LCD_WHITE   0xFFFF
 #define LCD_GREY    0xc339
+#define LCD_ORANGE  0x00FC
 
 /*
  * SPI Port and GPIO Defined - for STM32F4-Disco
