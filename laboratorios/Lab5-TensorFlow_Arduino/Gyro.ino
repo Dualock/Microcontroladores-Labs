@@ -80,7 +80,7 @@ void loop() {
 
       if (samplesRead == numSamples) {
         // add an empty line if it's the last sample
-        Serial.println();
+        Serial.println('Final de grabacio');
       }
     }
   }
