@@ -65,8 +65,6 @@ void loop() {
       samplesRead++;
 
       // print the data in CSV format
-      Serial.print(millis());
-      Serial.print(',');
       Serial.print(aX, 3);
       Serial.print(',');
       Serial.print(aY, 3);
