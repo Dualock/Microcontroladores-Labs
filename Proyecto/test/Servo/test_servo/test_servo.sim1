@@ -11,10 +11,10 @@
 <item itemtype="Servo" CircId="Servo-6" mainComp="false" Show_id="true" Show_Val="false" Pos="1348,852" rotation="0" hflip="1" vflip="1" label="Servo-6" idLabPos="-16,-40" labelrot="0" valLabPos="-16,20" valLabRot="0" Speed="0.2 _sec/60º" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" />
 
 <item itemtype="Subcircuit" CircId="Nano-7" mainComp="false" Show_id="true" Show_Val="false" Pos="1132,768" rotation="0" hflip="1" vflip="1" label="Nano-7" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
-<mainCompProps itemtype="MCU" CircId="1_m328 TQFP-269" mainComp="true" Show_id="true" Show_Val="false" Pos="20,20" rotation="0" hflip="1" vflip="1" label="1_m328 TQFP-269" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="16 MHz" Program="test_servo/test_servo.ino.eightanaloginputs.hex" Auto_Load="true" Rst_enabled="true" Ext_Osc="true" Wdt_enabled="false" />
+<mainCompProps itemtype="MCU" CircId="1_m328 TQFP-269" mainComp="true" Show_id="true" Show_Val="false" Pos="20,20" rotation="0" hflip="1" vflip="1" label="1_m328 TQFP-269" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="16 MHz" Program="test_servo.ino.eightanaloginputs.hex" Auto_Load="true" Rst_enabled="true" Ext_Osc="true" Wdt_enabled="false" />
 </item>
 
-<item itemtype="TextComponent" CircId="TextComponent-8" mainComp="false" Show_id="false" Show_Val="false" Pos="1344,788" rotation="0" hflip="1" vflip="1" label="TextComponent-8" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="1 _Pixels" Border="1 _Pixels" Opacity="1" Font="Helvetica [Cronyx]" Font_Size="5 _Pixels" Fixed_Width="false" Text="Abierto" />
+<item itemtype="TextComponent" CircId="TextComponent-8" mainComp="false" Show_id="false" Show_Val="false" Pos="1344,796" rotation="0" hflip="1" vflip="1" label="TextComponent-8" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="1 _Pixels" Border="1 _Pixels" Opacity="1" Font="Helvetica [Cronyx]" Font_Size="5 _Pixels" Fixed_Width="false" Text="Abierto" />
 
 <item itemtype="Resistor" CircId="Resistor-9" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="1180,948" rotation="0" hflip="1" vflip="1" label="Resistor-9" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="100 Ω" />
 
@@ -22,20 +22,78 @@
 
 <item itemtype="Fixed Voltage" CircId="Fixed Voltage-11" mainComp="false" Show_id="false" Show_Val="false" Pos="1240,784" rotation="0" hflip="-1" vflip="1" label="Fixed Voltage-11" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="true" Voltage="5 V" />
 
-<item itemtype="Connector" uid="Connector-13" startpinid="Servo-6-in1" endpinid="Ground-1-Gnd" pointList="1300,852,1268,852,1268,856" />
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-20" mainComp="false" Show_id="false" Show_Val="false" Pos="1040,828" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-20" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="false" Voltage="3.3 V" />
 
-<item itemtype="Connector" uid="Connector-14" startpinid="Ground-5-Gnd" endpinid="Nano-7-GND1" pointList="1220,804,1220,792,1188,792" />
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-21" mainComp="false" Show_id="false" Show_Val="false" Pos="1040,848" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-21" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="true" Voltage="3.3 V" />
 
-<item itemtype="Connector" uid="Connector-19" startpinid="Fixed Voltage-11-outnod" endpinid="Nano-7-Vin" pointList="1224,784,1188,784" />
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-24" mainComp="false" Show_id="false" Show_Val="false" Pos="1040,868" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-24" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="false" Voltage="3.3 V" />
 
-<item itemtype="Connector" uid="Connector-20" startpinid="Nano-7-11" endpinid="Resistor-9-lPin" pointList="1140,888,1120,888,1120,948,1164,948" />
+<item itemtype="7-Seg BCD" CircId="7-Seg BCD-32" mainComp="false" Show_id="false" Show_Val="false" Pos="1072,776" rotation="0" hflip="1" vflip="1" label="7-Seg BCD-32" idLabPos="-16,-40" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
-<item itemtype="Connector" uid="Connector-23" startpinid="Nano-7-1" endpinid="SerialPort-4-pin1" pointList="1140,784,1112,784,1112,724,1116,724" />
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-33" mainComp="false" Show_id="false" Show_Val="false" Pos="1040,888" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-33" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="false" Voltage="3.3 V" />
 
-<item itemtype="Connector" uid="Connector-24" startpinid="Fixed Voltage-2-outnod" endpinid="Servo-6-in0" pointList="1280,836,1300,836" />
+<item itemtype="Probe" CircId="Probe-47" mainComp="false" Show_id="false" Show_Val="true" Pos="1112,804" rotation="-45" hflip="1" vflip="1" label="Probe-47" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
 
-<item itemtype="Connector" uid="Connector-25" startpinid="SerialPort-4-pin0" endpinid="Nano-7-0" pointList="1116,708,1104,708,1104,792,1140,792" />
+<item itemtype="TextComponent" CircId="TextComponent-51" mainComp="false" Show_id="false" Show_Val="false" Pos="1012,748" rotation="0" hflip="1" vflip="1" label="TextComponent-51" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="1 _Pixels" Border="1 _Pixels" Opacity="1" Font="Helvetica [Cronyx]" Font_Size="5 _Pixels" Fixed_Width="false" Text="1. Abrir" />
 
-<item itemtype="Connector" uid="Connector-22" startpinid="Resistor-9-rPin" endpinid="Servo-6-in2" pointList="1196,948,1280,948,1280,868,1300,868" />
+<item itemtype="TextComponent" CircId="TextComponent-52" mainComp="false" Show_id="false" Show_Val="false" Pos="1012,764" rotation="0" hflip="1" vflip="1" label="TextComponent-52" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="1 _Pixels" Border="1 _Pixels" Opacity="1" Font="Helvetica [Cronyx]" Font_Size="5 _Pixels" Fixed_Width="false" Text="2. Cerrar" />
+
+<item itemtype="TextComponent" CircId="TextComponent-53" mainComp="false" Show_id="false" Show_Val="false" Pos="1012,780" rotation="0" hflip="1" vflip="1" label="TextComponent-53" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="1 _Pixels" Border="1 _Pixels" Opacity="1" Font="Helvetica [Cronyx]" Font_Size="5 _Pixels" Fixed_Width="false" Text="3. Continuar" />
+
+<item itemtype="TextComponent" CircId="TextComponent-54" mainComp="false" Show_id="false" Show_Val="false" Pos="1012,796" rotation="0" hflip="1" vflip="1" label="TextComponent-54" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="1 _Pixels" Border="1 _Pixels" Opacity="1" Font="Helvetica [Cronyx]" Font_Size="5 _Pixels" Fixed_Width="false" Text="4. Pausar" />
+
+<item itemtype="Node" CircId="Node-36" mainComp="false" Pos="1084,828" />
+
+<item itemtype="Node" CircId="Node-39" mainComp="false" Pos="1072,848" />
+
+<item itemtype="Node" CircId="Node-42" mainComp="false" Pos="1068,868" />
+
+<item itemtype="Node" CircId="Node-45" mainComp="false" Pos="1060,888" />
+
+<item itemtype="Node" CircId="Node-49" mainComp="false" Pos="1100,828" />
+
+<item itemtype="Connector" uid="connector-12" startpinid="Servo-6-in1" endpinid="Ground-1-Gnd" pointList="1300,852,1268,852,1268,856" />
+
+<item itemtype="Connector" uid="connector-13" startpinid="Ground-5-Gnd" endpinid="Nano-7-GND1" pointList="1220,804,1220,792,1188,792" />
+
+<item itemtype="Connector" uid="connector-14" startpinid="Fixed Voltage-11-outnod" endpinid="Nano-7-Vin" pointList="1224,784,1188,784" />
+
+<item itemtype="Connector" uid="connector-15" startpinid="Nano-7-11" endpinid="Resistor-9-lPin" pointList="1140,888,1120,888,1120,948,1164,948" />
+
+<item itemtype="Connector" uid="connector-16" startpinid="Nano-7-1" endpinid="SerialPort-4-pin1" pointList="1140,784,1112,784,1112,724,1116,724" />
+
+<item itemtype="Connector" uid="connector-17" startpinid="Fixed Voltage-2-outnod" endpinid="Servo-6-in0" pointList="1280,836,1300,836" />
+
+<item itemtype="Connector" uid="connector-18" startpinid="SerialPort-4-pin0" endpinid="Nano-7-0" pointList="1116,708,1104,708,1104,792,1140,792" />
+
+<item itemtype="Connector" uid="connector-19" startpinid="Resistor-9-rPin" endpinid="Servo-6-in2" pointList="1196,948,1280,948,1280,868,1300,868" />
+
+<item itemtype="Connector" uid="Connector-28" startpinid="Nano-7-4" endpinid="Node-49-0" pointList="1140,832,1100,832,1100,828" />
+
+<item itemtype="Connector" uid="Connector-30" startpinid="Nano-7-5" endpinid="Node-39-0" pointList="1140,840,1100,840,1100,848,1072,848" />
+
+<item itemtype="Connector" uid="Connector-31" startpinid="Nano-7-6" endpinid="Node-42-0" pointList="1140,848,1108,848,1108,868,1068,868" />
+
+<item itemtype="Connector" uid="Connector-34" startpinid="Fixed Voltage-33-outnod" endpinid="Node-45-0" pointList="1056,888,1060,888" />
+
+<item itemtype="Connector" uid="Connector-35" startpinid="7-Seg BCD-32-in0" endpinid="Node-36-1" pointList="1084,808,1084,828" />
+
+<item itemtype="Connector" uid="Connector-37" startpinid="Node-36-2" endpinid="Fixed Voltage-20-outnod" pointList="1084,828,1056,828" />
+
+<item itemtype="Connector" uid="Connector-38" startpinid="7-Seg BCD-32-in1" endpinid="Node-39-1" pointList="1076,808,1076,848,1072,848" />
+
+<item itemtype="Connector" uid="Connector-40" startpinid="Node-39-2" endpinid="Fixed Voltage-21-outnod" pointList="1072,848,1056,848" />
+
+<item itemtype="Connector" uid="Connector-41" startpinid="7-Seg BCD-32-in2" endpinid="Node-42-1" pointList="1068,808,1068,868" />
+
+<item itemtype="Connector" uid="Connector-43" startpinid="Node-42-2" endpinid="Fixed Voltage-24-outnod" pointList="1068,868,1056,868" />
+
+<item itemtype="Connector" uid="Connector-44" startpinid="7-Seg BCD-32-in3" endpinid="Node-45-1" pointList="1060,808,1060,888" />
+
+<item itemtype="Connector" uid="Connector-46" startpinid="Node-45-2" endpinid="Nano-7-7" pointList="1060,888,1112,888,1112,856,1140,856" />
+
+<item itemtype="Connector" uid="Connector-48" startpinid="Probe-47-inpin" endpinid="Node-49-1" pointList="1096,820,1096,828,1100,828" />
+
+<item itemtype="Connector" uid="Connector-50" startpinid="Node-49-2" endpinid="Node-36-0" pointList="1100,828,1084,828" />
 
 </circuit>
