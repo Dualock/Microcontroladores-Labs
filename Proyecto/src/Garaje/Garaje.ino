@@ -1,121 +1,139 @@
 
 #include <Servo.h>
-#include "state_machine.h"
+#include <ArduinoBLE.h>
+// Includes locales
 #include "compuerta.h"
-// Definicion de Pines
 
 // Salidas
-int led_pin = LED_BUILTIN; // LED naranja del arduino NANO BLE33
-int led_closed = 9;
-int led_open = 8;
-int control_pin = 11;
-
-//Entradas
-int open_btn = 2;
-int close_btn = 3;
-
-
-// Objeto Servo
-Servo myservo;
-
-// Estados y eventos de la FSM
-States currentState;
-Events event;
-
-// Prototipos de funciones
-void open_state();
-void close_state();
-
-// Variables globales
-static int bluetooth_open_command = 0; // 1 para abrir
-static int bluetooth_close_command = 1; // 1 para cerrar
-int current_pos = 90;
-
-// Funcion setup
-void setup() {
-  Serial.begin(9600);
-  myservo.attach(control_pin);
-  pinMode(led_closed, OUTPUT);
-  pinMode(led_open, OUTPUT);
-  
-  // Funciones para interrupciones externas
-  pinMode(open_btn, INPUT);
-  pinMode(close_btn, INPUT);
-  attachInterrupt(digitalPinToInterrupt(open_btn), open_state, FALLING);
-  attachInterrupt(digitalPinToInterrupt(close_btn), close_state, FALLING);
-  initStateMachine(currentState, event);
-}
-// Interrupciones para generar eventos de apertura y cierre
-void open_state(){
-  Serial.print("Interrupcion Externa Abrir: ");
-  bluetooth_open_command = 1; // 1 para abrir
-  bluetooth_close_command = 0; // 1 para cerrar
-}
-void close_state(){
-  Serial.print("Interrupcion Externa Cerrar: ");
-  bluetooth_open_command = 0; // 1 para abrir
-  bluetooth_close_command = 1; // 1 para cerrar
-}
-
-
-void loop() {
-  Serial.println("looping");
-  // Posicion 180 grados, cierra
-  eventHandler(currentState, event);
-  if(bluetooth_close_command){
-    if(current_pos < 180){
-      current_pos = closeGate(myservo, current_pos);
-      event = EV_CLOSE;
-      }
-    if(current_pos == 180){
-      event = EV_DONE;
-      }
-    }
-  // Posicion 0 grados, cierra
-  if(bluetooth_open_command){
-    
-    if(current_pos == 0){
-      event = EV_DONE;
-    }
-    if(current_pos>0){
-      event = EV_OPEN;
-      current_pos = openGate(myservo, current_pos);
-    }
-  }
-  Serial.println(current_pos);
-  if(current_pos == 180){
-  digitalWrite(led_closed, HIGH);
-  digitalWrite(led_open, LOW);
-  }
-  if(current_pos == 0){
-  digitalWrite(led_closed, LOW);
-  digitalWrite(led_open, HIGH);
-  }
-  delay(500);
-}
-
-/*
-
-#include <Servo.h>
-#include "compuerta.h"
-
 int led = LED_BUILTIN;
 int control_pin = 11;
 
+// Entradas
+int bit0 = 4;
+int bit1 = 5;
+int bit2 = 6;
+
+// Variables globales
+int estado = -1;
+int ultimo_estado = -1;
+bool ready = false;
+
+// Servo
 Servo myservo;
+
+//BLE
+BLEService ledService("19B10010-E8F2-537E-4F6C-D104768A1214"); // create service
+// create switch characteristic and allow remote device to read and write
+BLEIntCharacteristic ledCharacteristic("19B10011-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
+
+// Prototipo de funciones
+int maquina_estados(int posicion_servo); // Logica de estados simple
+int get_bluetooth(); // Obtiene el estado por medio de BLE
+int default_close(int posicion_servo); // funcion para cerrar el porton como posicion inicial
+
+void ble_setup(){
+  Serial.begin(9600);
+  while (!Serial);
+
+  // begin initialization
+  if (!BLE.begin()) {
+    Serial.println("starting Bluetooth® Low Energy module failed!");
+
+    while (1);
+  }
+
+  // set the local name peripheral advertises
+  BLE.setLocalName("TestLED");
+  // set the UUID for the service this peripheral advertises:
+  BLE.setAdvertisedService(ledService);
+
+  // add the characteristics to the service
+  ledService.addCharacteristic(ledCharacteristic);
+
+  // add the service
+  BLE.addService(ledService);
+
+  ledCharacteristic.writeValue(0);
+
+  // start advertising
+   BLE.advertise();
+
+  Serial.println("Bluetooth® device active, waiting for connections...");
+  }
+
 void setup() {
+  // configuracion de perifericos
+  ble_setup();
   Serial.begin(9600);
   myservo.attach(control_pin);
+
+  // Configuracion de salidas
   pinMode(led, OUTPUT);
-  
+
+  //Configuracion de entradas
+  pinMode(bit0, INPUT);
+  pinMode(bit1, INPUT);
+  pinMode(bit2, INPUT);
 }
 
 void loop() {
-  static int current_pos = 90;
-  Serial.println(current_pos);
-  current_pos = closeGate(myservo, current_pos);
-  delay(1000);
-  current_pos = openGate(myservo, current_pos);
-  current_pos = hardWriteValue(myservo, current_pos, 120);
+  static int posicion_servo = 150;
+  Serial.println("Cerrando por default al iniciar");
+  while(ready == false){
+    posicion_servo = default_close(posicion_servo);
+    delay(100);
+    }
+  Serial.println("Listo!");
+  while(ready == true){
+    estado = get_bluetooth();
+    Serial.print("estado: ");
+    Serial.println(estado);
+    Serial.println();
+    posicion_servo = maquina_estados(posicion_servo);
+    delay(100);
+    }
+    
 }
-*/
+int default_close(int posicion_servo){
+  posicion_servo = closeGate(myservo, posicion_servo, led);
+  if(posicion_servo == CLOSED_VALUE){
+    ready = true;
+    }
+    return posicion_servo;
+  }
+int maquina_estados(int posicion_servo){
+  switch(estado){
+    case 12592:
+      posicion_servo = openGate(myservo, posicion_servo, led);
+      Serial.println("Recibiendo por Bluetooth Estado 1: Abrir");
+      ultimo_estado = 12592;
+      break;
+    case 12848:
+      posicion_servo = closeGate(myservo, posicion_servo, led);
+      Serial.println("Recibiendo por Bluetooth Estado 2: Cerrar");
+      ultimo_estado = 12848;
+      break;
+    case 13104:
+      estado = ultimo_estado;
+      Serial.println("Recibiendo por Bluetooth Estado 3: Continuar");
+      break;
+    case 52:
+      Serial.println("Recibiendo por Bluetooth Estado 4: Pausa");
+      break;  
+    default:
+      Serial.println("Estado no identificado");
+    }
+    return posicion_servo;
+  }
+int get_bluetooth() {
+  // poll for Bluetooth® Low Energy events
+  BLE.poll();
+  //Serial.println(estado);
+  Serial.println(ledCharacteristic.value());
+  if (ledCharacteristic.written()) {
+    // update LED, either central has written to characteristic or button state has changed
+    estado = ledCharacteristic.value(); // Guarda el comando obtenido
+  }
+  delay(500);
+  return estado;
+}
