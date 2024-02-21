@@ -19,15 +19,23 @@
 
 #include <ArduinoBLE.h>
 
+// Salidas
 const int ledPin = LED_BUILTIN; // set ledPin to on-board LED
-const int buttonPin = 4; // set buttonPin to digital pin 4
+
+// Variables globales
 static int estado = -1;
+int ultimo_estado = -1;
+
 BLEService ledService("19B10010-E8F2-537E-4F6C-D104768A1214"); // create service
 
 // create switch characteristic and allow remote device to read and write
 BLEIntCharacteristic ledCharacteristic("19B10011-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 // create button characteristic and allow remote device to get notifications
 //BLEByteCharacteristic buttonCharacteristic("19B10012-E8F2-537E-4F6C-D104768A1214", BLERead | BLENotify);
+
+// Function prototypes
+int maquina_estados(int posicion_servo);
+int get_bluetooth();
 
 void setup() {
   Serial.begin(9600);
@@ -69,32 +77,45 @@ int get_bluetooth() {
   if (ledCharacteristic.written()) {
     // update LED, either central has written to characteristic or button state has changed
     estado = ledCharacteristic.value(); // Guarda el comando obtenido
-    
-    if (estado == 12592) {
-      digitalWrite(ledPin, HIGH);
-      Serial.println("Recibiendo por Bluetooth Estado 1: Abrir");
-    } 
-    if (estado == 12848){
-      digitalWrite(ledPin, LOW);
-      Serial.println("Recibiendo por Bluetooth Estado 2: Cerrar");
-    }
-    if(estado == 13104){
-      Serial.println("Recibiendo por Bluetooth Estado 3: Continuar");
-      }
-    if(estado == 52){
-      digitalWrite(ledPin, HIGH);
-      delay(500);
-      digitalWrite(ledPin, LOW);
-      Serial.println("Recibiendo por Bluetooth Estado 4: Pausa");
-      }
   }
   delay(500);
   return estado;
 }
 void loop(){
+  static int posicion_servo = 150;
   estado = get_bluetooth();
-  Serial.print("Estado obtenido: ");
-  Serial.println(estado);
+  posicion_servo = maquina_estados(posicion_servo);
+  delay(500);
+  }
+
+int maquina_estados(int posicion_servo){
+  switch(estado){
+    case 12592:
+      //posicion_servo = openGate(myservo, posicion_servo, led);
+      digitalWrite(ledPin, HIGH);
+      Serial.println("Recibiendo por Bluetooth Estado 1: Abrir");
+      ultimo_estado = 12592;
+      break;
+    case 12848:
+      //posicion_servo = closeGate(myservo, posicion_servo, led);
+      digitalWrite(ledPin, LOW);
+      Serial.println("Recibiendo por Bluetooth Estado 2: Cerrar");
+      ultimo_estado = 12848;
+      break;
+    case 13104:
+      //estado = ultimo_estado;
+      Serial.println("Recibiendo por Bluetooth Estado 3: Continuar");
+      break;
+    case 52:
+      Serial.println("Recibiendo por Bluetooth Estado 4: Pausa");
+      digitalWrite(ledPin, HIGH);
+      delay(500);
+      digitalWrite(ledPin, LOW);
+      break;  
+    default:
+      Serial.println("Estado no identificado");
+    }
+    return posicion_servo;
   }
 /*void deviceConnected(BLEDevice central) {
   Serial.print("Connected to central: ");
