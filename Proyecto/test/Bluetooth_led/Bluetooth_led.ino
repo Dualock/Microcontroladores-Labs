@@ -21,12 +21,11 @@
 
 const int ledPin = LED_BUILTIN; // set ledPin to on-board LED
 const int buttonPin = 4; // set buttonPin to digital pin 4
-byte command;
-
+static int estado = -1;
 BLEService ledService("19B10010-E8F2-537E-4F6C-D104768A1214"); // create service
 
 // create switch characteristic and allow remote device to read and write
-BLEByteCharacteristic ledCharacteristic("19B10011-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
+BLEIntCharacteristic ledCharacteristic("19B10011-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 // create button characteristic and allow remote device to get notifications
 //BLEByteCharacteristic buttonCharacteristic("19B10012-E8F2-537E-4F6C-D104768A1214", BLERead | BLENotify);
 
@@ -62,25 +61,42 @@ void setup() {
   Serial.println("Bluetooth® device active, waiting for connections...");
 }
 
-void loop() {
+int get_bluetooth() {
   // poll for Bluetooth® Low Energy events
   BLE.poll();
-  Serial.println(command);
+  //Serial.println(estado);
   Serial.println(ledCharacteristic.value());
   if (ledCharacteristic.written()) {
     // update LED, either central has written to characteristic or button state has changed
-    command = ledCharacteristic.value(); // Guarda el comando obtenido
-    if (command) {
+    estado = ledCharacteristic.value(); // Guarda el comando obtenido
+    
+    if (estado == 12592) {
       digitalWrite(ledPin, HIGH);
-      Serial.println("LED ON");
-    } else{
+      Serial.println("Recibiendo por Bluetooth Estado 1: Abrir");
+    } 
+    if (estado == 12848){
       digitalWrite(ledPin, LOW);
-      Serial.println("LED OFF");
+      Serial.println("Recibiendo por Bluetooth Estado 2: Cerrar");
     }
+    if(estado == 13104){
+      Serial.println("Recibiendo por Bluetooth Estado 3: Continuar");
+      }
+    if(estado == 52){
+      digitalWrite(ledPin, HIGH);
+      delay(500);
+      digitalWrite(ledPin, LOW);
+      Serial.println("Recibiendo por Bluetooth Estado 4: Pausa");
+      }
   }
   delay(500);
+  return estado;
 }
-void deviceConnected(BLEDevice central) {
+void loop(){
+  estado = get_bluetooth();
+  Serial.print("Estado obtenido: ");
+  Serial.println(estado);
+  }
+/*void deviceConnected(BLEDevice central) {
   Serial.print("Connected to central: ");
   Serial.println(central.address());
-}
+}*/
