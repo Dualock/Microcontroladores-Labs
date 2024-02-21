@@ -67,12 +67,12 @@ int default_close(int posicion_servo){
 int maquina_estados(int posicion_servo){
   switch(estado){
     case 1:
-      Serial.println("Cerrar: ");
+      Serial.println("Abrir: ");
       posicion_servo = openGate(myservo, posicion_servo, led);
       ultimo_estado = 1;
       break;
     case 2:
-      Serial.println("Abrir: ");
+      Serial.println("Cerrar: ");
       posicion_servo = closeGate(myservo, posicion_servo, led);
       ultimo_estado = 2;
       break;
